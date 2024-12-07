@@ -1,0 +1,45 @@
+.formulario {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #44c0f9;
+}
+
+.form-group {
+  padding-left: 30px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  min-width: 150px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 5px;
+  background-color: aqua;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
