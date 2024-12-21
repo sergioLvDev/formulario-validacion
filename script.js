@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
       errorName.classList.remove();
     }
     //validar el mail con un patron especifico
-    const errorMail = document.getElementById("emailError");
     const inputMail = document.getElementById("email").value;
+    const errorMail = document.getElementById("emailError");
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const res = emailPattern.test(inputMail); // testea que el mail ingresad coincida con el patron
     console.log(res); //true
@@ -28,6 +28,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     //validar contraseña se mayor que 8
-    //si todos lo campos cmplieron mostrar un alert
+    const pass = document.getElementById("password").value;
+    const passwordError = document.getElementById("passwordError");
+    const passPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&#.$($)$-$_])[A-Za-z\d$@$!%*?&#.$($)$-$_]{8,15}$/;
+    const resPass = passPattern.test(pass);
+    if (!resPass) {
+      passwordError.textContent =
+        "La contraseña debe tener al menos 8 caracteres, números, mayúsculas y minúsculas y caracteres especiales";
+      passwordError.classList.add("error-message");
+    } else {
+      passwordError.textContent = "";
+      passwordError.classList.remove("error-message");
+    }
+    //si todos lo campos estan llenos y cumpliendo con la condicion se va a mostrar un alert
+    //la condicion se cumple cuando todos los campos que notificaban el AVISO DE ERROR estan vacios
+
+    if (
+      !errorName.textContent &&
+      !errorMail.textContent &&
+      !passwordError.textContent
+    ) {
+      alert("El formulario se ha enviado con exito");
+      document.getElementById("formulario").reset();
+    }
   });
 });
